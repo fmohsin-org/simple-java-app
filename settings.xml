@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0
+              https://maven.apache.org/xsd/settings-1.2.0.xsd">
+  <!-- Isolated cache so every artifact is fetched through the firewall, not served from ~/.m2 -->
+  <localRepository>${user.dir}/.m2-repo</localRepository>
+<servers>
+    <server>
+      <id>endor-firewall</id>
+      <username>${env.ENDOR_API_KEY_ID}</username>
+      <password>${env.ENDOR_API_SECRET}</password>
+    </server>
+  </servers>
+  <mirrors>
+    <mirror>
+      <id>endor-firewall</id>
+      <name>Endor Package Firewall</name>
+      <!-- TODO: Replace <YOUR_NAMESPACE> with your Endor Labs namespace before running Maven -->
+      <url>https://factory.endorlabs.com/v1/namespaces/<YOUR_NAMESPACE>/firewall/maven/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+</settings>

@@ -1,0 +1,30 @@
+pluginManagement {
+    repositories {
+        maven {
+            name = 'endorFirewall'
+            // TODO: Replace <YOUR_NAMESPACE> with your Endor Labs namespace before running Gradle
+            url = 'https://factory.endorlabs.com/v1/namespaces/<YOUR_NAMESPACE>/firewall/maven/'
+            credentials {
+                username = System.getenv('ENDOR_API_KEY_ID')
+                password = System.getenv('ENDOR_API_SECRET')
+            }
+        }
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven {
+            name = 'endorFirewall'
+            // TODO: Replace <YOUR_NAMESPACE> with your Endor Labs namespace before running Gradle
+            url = 'https://factory.endorlabs.com/v1/namespaces/<YOUR_NAMESPACE>/firewall/maven/'
+            credentials {
+                username = System.getenv('ENDOR_API_KEY_ID')
+                password = System.getenv('ENDOR_API_SECRET')
+            }
+        }
+    }
+}
+
+rootProject.name = 'simple-java-app'
